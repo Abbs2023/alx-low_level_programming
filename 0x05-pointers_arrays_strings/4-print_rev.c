@@ -5,10 +5,10 @@
  * @s: string
  * Return: 0 (Success)
  */
-void peint_rev(char *s)
+void print_rev(char *s)
 {
 	int longi = 0;
-	int i;
+	int m;
 
 	while (*s != '\0')
 	{
@@ -16,7 +16,7 @@ void peint_rev(char *s)
 		s++;
 	}
 	s--;
-	for (i = longi; i > 0; i--)
+	for (m = longi; m > 0; m--)
 	{
 		_putchar(*s);
 		s--;
