@@ -8,18 +8,26 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int i;
-	unsigned int dec_val = 0;
 
-	if (!b)
-		return (0);
+ if (b == NULL)
+        return 0;
 
-	for (i = 0; b[i]; i++)
-	{
-		if (b[i] < '0' || b[i] > '1')
-			return (0);
-		dec_val = 2 * dec_val + (b[i] - '0');
-	}
+    unsigned int result = 0;
+    unsigned int length = (unsigned int)strlen(b) - 1;
+    while (*b != '\0') 
+{
+        if (*b != '0' && *b != '1')
+            return 0;
+        result += (*b - '0')* binaryToUnitHelper(2,length);
+        length--;
+        b++;
+    }
+    return result;
+}
 
-	return (dec_val);
+unsigned int binaryToUnitHelper(int base, int power)
+{
+    if(power == 0)
+        return (1);
+    return (base * binaryToUnitHelper(base, power - 1));
 }
